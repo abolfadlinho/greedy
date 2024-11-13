@@ -1,7 +1,7 @@
-package com.example;
+package csen703.main.assignment1;
 
 public class RingToss {
-    public static int Greedy(int[] pegs) {
+    public static int RingTossGreedy(int[] pegs) {
         int tosses = 0;
         int n = pegs.length;
         
@@ -21,7 +21,7 @@ public class RingToss {
             while (i + 1 < n && pegs[i] >= pegs[i + 1]) { //condition for checking if we are still decreasing and the array hasn't ended
                 i++;
             }
-            
+
             if (i > start) { //making sure we have a segment to handle not a single peg
                 tosses += handleSegment(pegs, start, i);
             }
