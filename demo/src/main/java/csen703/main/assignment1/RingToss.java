@@ -1,50 +1,40 @@
 package csen703.main.assignment1;
 
+import java.util.Arrays;
+
 public class RingToss {
     public static int RingTossGreedy(int[] pegs) {
-        int tosses = 0;
         int n = pegs.length;
-        
+        int[] current = new int[n];
+        int tosses = 0;
         int i = 0;
-        
-        while (i < n) {
-            int start = i;
-            while (i + 1 < n && pegs[i] < pegs[i + 1]) { //condition for checking if we are still increasing and the array hasn't ended
-                i++;
-            }
 
-            if (i > start) { //making sure we have a segment to handle not a single peg
-                tosses += handleSegment(pegs, start, i);
-            }
-            
-            start = i;
-            while (i + 1 < n && pegs[i] >= pegs[i + 1]) { //condition for checking if we are still decreasing and the array hasn't ended
-                i++;
-            }
 
-            if (i > start) { //making sure we have a segment to handle not a single peg
-                tosses += handleSegment(pegs, start, i);
+        while(i < n && current[i]<=pegs[i]) {
+            if(current[i]==pegs[i]) {
+                //System.out.println(Arrays.toString(current));
+                i++;
+                continue;
             }
-            
-            i++;
+            int diff = pegs[i] - current[i];
+            for(int j = i; j < n && ((pegs[j]-current[j])>=diff);j++) {
+                //System.out.println(Arrays.toString(current));
+                //System.out.println("New j");
+                current[j]++;
+            }
+            tosses++;
         }
-        
+
         return tosses;
-        
     }
 
-    private static int handleSegment(int[] pegs, int start, int end) {
-        int tosses = 0;
-        int currentHeight = 0; //this is a variable for the whole set so whenever we toss, the whole set increases in height
 
-        for (int i = start; i <= end; i++) {
-            int diff = pegs[i] - currentHeight; //if previous tosses is not enough
-            if (diff > 0) {
-                tosses++;
-                currentHeight += diff;
-            }
-        }
+    public static void main(String[] args) {
+        int[] pegs = {2,3,4,2,1};
 
-        return tosses;
+        //heuristic is that we can divide the array into segments wether increasing or decreasing
+        int result = RingToss.RingTossGreedy(pegs);
+
+        System.out.println(result);
     }
 }
