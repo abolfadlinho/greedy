@@ -32,7 +32,7 @@ public class RingToss {
     public static void main(String[] args) {
         int[] pegs = {2,3,4,2,1};
 
-        //heuristic is that we can divide the array into segments wether increasing or decreasing
+        //heuristic is we loop from beginning and add1 to all consecutive indexes that have a diff greater than or equal to current diff and add 1
         int result = RingToss.RingTossGreedy(pegs);
 
         System.out.println(result);
