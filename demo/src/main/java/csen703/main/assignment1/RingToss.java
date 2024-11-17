@@ -9,28 +9,25 @@ public class RingToss {
         int[] current = new int[n];
         int tosses = 0;
         int i = 0;
-        
         do {
             if(current[i]==pegs[i]) {
                 ++i;
                 continue;
             }
             int diff = pegs[i] - current[i];
-            for(int j = i; j < n && ((pegs[j]-current[j])>=diff);++j) {
+            for(int j = i; j < n && ((pegs[j]-current[j])>=diff); ++j) {
                 ++current[j];
             }
             ++tosses;
         } while(i < n && current[i]<=pegs[i]);
-
         return tosses;
     }
-
+    
     public static void main(String[] args) {
-        int[] pegs = {2,3,4,2,1};
+        int[] pegs = {3,2,1,0,4};
 
         //heuristic is we loop from beginning and add1 to all consecutive indexes that have a diff greater than or equal to current diff and add 1
         int result = RingToss.RingTossGreedy(pegs);
-
         System.out.println(result);
     }
 }
