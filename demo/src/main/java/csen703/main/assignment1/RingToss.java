@@ -2,6 +2,7 @@ package csen703.main.assignment1;
 
 import java.util.Arrays;
 
+@SuppressWarnings("unused")
 public class RingToss {
     public static int RingTossGreedy(int[] pegs) {
         int n = pegs.length;
