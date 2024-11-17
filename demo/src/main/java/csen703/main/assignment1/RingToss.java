@@ -9,26 +9,21 @@ public class RingToss {
         int[] current = new int[n];
         int tosses = 0;
         int i = 0;
-
-
-        while(i < n && current[i]<=pegs[i]) {
+        
+        do {
             if(current[i]==pegs[i]) {
-                //System.out.println(Arrays.toString(current));
-                i++;
+                ++i;
                 continue;
             }
             int diff = pegs[i] - current[i];
-            for(int j = i; j < n && ((pegs[j]-current[j])>=diff);j++) {
-                //System.out.println(Arrays.toString(current));
-                //System.out.println("New j");
-                current[j]++;
+            for(int j = i; j < n && ((pegs[j]-current[j])>=diff);++j) {
+                ++current[j];
             }
-            tosses++;
-        }
+            ++tosses;
+        } while(i < n && current[i]<=pegs[i]);
 
         return tosses;
     }
-
 
     public static void main(String[] args) {
         int[] pegs = {2,3,4,2,1};
