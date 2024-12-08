@@ -31,13 +31,6 @@ You are required to implement a **greedy algorithm** in **Java** that solves the
 3. **Methods**:
    - `public static int RingTossGreedy(int [] pegs)` — This method implements the greedy approach to calculate the minimum number of tosses needed to match the scoreboard.
 
-### Regulations
-1. A team can have up to **3 members**.
-2. Solutions must be written in **Java**.
-3. Submit your solution via the provided [Google Form](https://forms.gle/kpqLZvmNqFmPZU7g6).
-4. **Deadline**: Tuesday, 19th of November, 2024.
-5. **Plagiarism** is strictly prohibited. Any use of generative AI tools (like GPT, Copilot, etc.) or sharing of solutions with other teams will result in an automatic zero for the assignment.
-
 ## Instructions
 
 ### Problem Constraints:
